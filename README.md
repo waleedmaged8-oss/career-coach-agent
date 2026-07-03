@@ -5,6 +5,41 @@ A production-ready, multi-agent AI Career Coach in Python. The system helps cand
 Using a modular multi-agent architecture and built-in security guardrails, the career coach guides users through profile building, skill gap analysis, customized learning roadmaps, resume feedback, and stateful mock interviews.
 
 ---
+## Table of Contents
+
+- Features
+- Workflow
+- Architecture Overview
+- Technologies Used
+- File Structure
+- Getting Started
+- Running the Application
+- Running the Tests
+- Example Output
+- Future Improvements
+- AI Agent Concepts Demonstrated
+- License
+---
+## Features
+
+- Multi-Agent AI architecture coordinated by a central Orchestrator.
+- Secure prompt handling with PII redaction and prompt injection detection.
+- Personalized Skill Gap Analysis for four AI career paths.
+- AI-generated Learning Roadmaps with milestone-based plans.
+- ATS-focused Resume Review with actionable recommendations.
+- Stateful 3-round Mock Interview with AI feedback.
+- Session persistence to continue previous progress.
+- Export reports as Markdown files for future reference.
+- Modular and extensible agent design.
+
+## Workflow
+
+1. User selects a target career path.
+2. The Orchestrator routes every request.
+3. The Security Agent validates and sanitizes the input.
+4. The request is forwarded to the appropriate specialized agent.
+5. The selected agent generates the response using Gemini.
+6. Results are displayed in the CLI and optionally exported to Markdown.
 
 ## Architecture Overview
 
@@ -33,6 +68,16 @@ The application features a central orchestrator that coordinates specialized age
 │  Analysis    │  Generator   │ Preparation  │   │   │  Candidate       │
 └──────────────┴──────────────┴──────────────┴───┘   └──────────────────┘
 ```
+## Technologies Used
+
+- Python 3.10+
+- Google Gemini API
+- Google GenAI SDK
+- dotenv
+- unittest
+- Regular Expressions (Regex)
+- Markdown
+- Git & GitHub
 
 ### Specialized Agents:
 1. **Security Agent**: Enforces data safety and guards against adversarial prompts.
@@ -107,6 +152,12 @@ Launch the interactive CLI dashboard:
 ```bash
 python main.py
 ```
+## Demo
+
+The following screenshot shows the CLI interface of the AI Career Coach Agent.
+
+![Application Demo](images/demo.png)
+
 
 ### Navigating the App:
 1. **Target Goal Selection**: On startup, choose your target role (e.g., AI Engineer).
@@ -125,3 +176,48 @@ Unit tests are written using python's built-in `unittest` library and mock exter
 ```bash
 python -m unittest discover -s tests
 ```
+
+## Example Output
+
+```text
+Target Role: Data Analyst
+
+Skill Match Score: 72%
+
+Missing Skills:
+- SQL Window Functions
+- Power BI
+- Statistics
+
+Recommended Learning Path:
+Phase 1 → SQL Fundamentals
+Phase 2 → Data Visualization
+Phase 3 → Portfolio Projects
+```
+
+## Future Improvements
+
+- Web interface using Streamlit.
+- Support for additional career paths.
+- Voice-enabled interview sessions.
+- Persistent database storage.
+- PDF resume parsing.
+- Dashboard analytics for user progress.
+---
+
+## AI Agent Concepts Demonstrated
+
+This project demonstrates multiple concepts covered in the Kaggle AI Agents course:
+
+- Multi-Agent Architecture
+- Central Orchestrator
+- Security Guardrails
+- Prompt Injection Detection
+- PII Redaction
+- Stateful Agent Workflow
+- Google Gemini Integration
+- Modular Agent Design
+
+## License
+
+This project is intended for educational purposes as part of the Kaggle AI Agents Intensive Vibe Coding Capstone Project.
